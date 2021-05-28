@@ -26,7 +26,13 @@ struct ContentView: View {
                     destination: gameView(),
                     isActive: $isStartGame,
                     label: {
-                        Text("Start Game")
+                        Text("Quick Match")
+                    })
+                NavigationLink(
+                    destination: SettingsView(),
+                    isActive: $isSettings,
+                    label: {
+                        Text("Tournament")
                     })
                 NavigationLink(
                     destination: SettingsView(),

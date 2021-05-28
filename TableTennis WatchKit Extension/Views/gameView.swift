@@ -35,6 +35,7 @@ struct gameView: View {
                 Button(action: {
                     tennisViewModel.score1 = 0
                     tennisViewModel.score2 = 0
+                    tennisViewModel.matchPoint = false
                 }, label: {
                     Text("Reset")
                         .foregroundColor(.green)

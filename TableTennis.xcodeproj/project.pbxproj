@@ -20,6 +20,8 @@
 		A22BBC642660D91600B20019 /* gameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22BBC632660D91600B20019 /* gameView.swift */; };
 		A276A86426610E1700193242 /* TennisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A276A86326610E1700193242 /* TennisViewModel.swift */; };
 		A276A86A266114A900193242 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A276A869266114A900193242 /* SettingsView.swift */; };
+		A298BC5126613DCB005B6E34 /* TournamentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298BC5026613DCB005B6E34 /* TournamentView.swift */; };
+		A298BC53266140B1005B6E34 /* TournamentScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298BC52266140B1005B6E34 /* TournamentScoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,10 @@
 		A22BBC632660D91600B20019 /* gameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameView.swift; sourceTree = "<group>"; };
 		A276A86326610E1700193242 /* TennisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisViewModel.swift; sourceTree = "<group>"; };
 		A276A869266114A900193242 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A298BC4E26613DCB005B6E34 /* TableTennis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TableTennis-Bridging-Header.h"; sourceTree = "<group>"; };
+		A298BC4F26613DCB005B6E34 /* TableTennis WatchKit App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TableTennis WatchKit App-Bridging-Header.h"; sourceTree = "<group>"; };
+		A298BC5026613DCB005B6E34 /* TournamentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentView.swift; sourceTree = "<group>"; };
+		A298BC52266140B1005B6E34 /* TournamentScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentScoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,7 @@
 		A22BBC3B2660C96B00B20019 /* TableTennis WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A298BC542661511C005B6E34 /* Models */,
 				A276A86226610DF800193242 /* ViewModels */,
 				A22BBC682660D93200B20019 /* Views */,
 				A22BBC3C2660C96B00B20019 /* TableTennisApp.swift */,
@@ -154,6 +161,10 @@
 				A22BBC3E2660C96B00B20019 /* ContentView.swift */,
 				A22BBC632660D91600B20019 /* gameView.swift */,
 				A276A869266114A900193242 /* SettingsView.swift */,
+				A298BC5026613DCB005B6E34 /* TournamentView.swift */,
+				A298BC4E26613DCB005B6E34 /* TableTennis-Bridging-Header.h */,
+				A298BC4F26613DCB005B6E34 /* TableTennis WatchKit App-Bridging-Header.h */,
+				A298BC52266140B1005B6E34 /* TournamentScoreView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -164,6 +175,13 @@
 				A276A86326610E1700193242 /* TennisViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A298BC542661511C005B6E34 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +249,11 @@
 				TargetAttributes = {
 					A22BBC262660C96900B20019 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1250;
 					};
 					A22BBC2A2660C96900B20019 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1250;
 					};
 					A22BBC362660C96B00B20019 = {
 						CreatedOnToolsVersion = 12.4;
@@ -294,11 +314,13 @@
 			files = (
 				A22BBC642660D91600B20019 /* gameView.swift in Sources */,
 				A276A86A266114A900193242 /* SettingsView.swift in Sources */,
+				A298BC5126613DCB005B6E34 /* TournamentView.swift in Sources */,
 				A22BBC412660C96B00B20019 /* NotificationController.swift in Sources */,
 				A276A86426610E1700193242 /* TennisViewModel.swift in Sources */,
 				A22BBC3F2660C96B00B20019 /* ContentView.swift in Sources */,
 				A22BBC452660C96B00B20019 /* ComplicationController.swift in Sources */,
 				A22BBC3D2660C96B00B20019 /* TableTennisApp.swift in Sources */,
+				A298BC53266140B1005B6E34 /* TournamentScoreView.swift in Sources */,
 				A22BBC432660C96B00B20019 /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +461,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TableTennis WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = R92D944333;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "TableTennis WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -462,6 +485,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TableTennis WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = R92D944333;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "TableTennis WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -485,13 +509,22 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R92D944333;
 				IBSC_MODULE = TableTennis_WatchKit_Extension;
 				INFOPLIST_FILE = "TableTennis WatchKit App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.Ankish.TableTennis.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "TableTennis WatchKit Extension/Views/TableTennis WatchKit App-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 7.2;
@@ -504,13 +537,21 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R92D944333;
 				IBSC_MODULE = TableTennis_WatchKit_Extension;
 				INFOPLIST_FILE = "TableTennis WatchKit App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.Ankish.TableTennis.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "TableTennis WatchKit Extension/Views/TableTennis WatchKit App-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 7.2;
@@ -520,12 +561,20 @@
 		A22BBC582660C96B00B20019 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R92D944333;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.Ankish.TableTennis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TableTennis WatchKit Extension/Views/TableTennis-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -533,12 +582,19 @@
 		A22BBC592660C96B00B20019 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R92D944333;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.Ankish.TableTennis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TableTennis WatchKit Extension/Views/TableTennis-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
