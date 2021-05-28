@@ -21,7 +21,6 @@ struct gameView: View {
                 if matchPoint {
                     matchPointView(warningText: $warningText)
                 }
-                
                 Text("\(score1)  -  \(score2)")
                     .font(.title2)
                 Button(action: {
@@ -104,16 +103,9 @@ struct gameView: View {
             }
         }
     }
- 
-    
-    
     
 }
-struct gameView_Previews: PreviewProvider {
-    static var previews: some View {
-        gameView()
-    }
-}
+
 
 struct matchPointView: View {
     @Binding var warningText: String
@@ -123,5 +115,11 @@ struct matchPointView: View {
             .foregroundColor(.white)
             .padding(.horizontal)
             .background(Color(#colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)))
+    }
+}
+
+struct gameView_Previews: PreviewProvider {
+    static var previews: some View {
+        gameView()
     }
 }
