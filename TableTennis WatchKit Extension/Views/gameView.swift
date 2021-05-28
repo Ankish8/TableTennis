@@ -51,12 +51,16 @@ struct gameView: View {
                     
                 })
                 .offset(y: 30)
+                
             }
             .alert(isPresented: $tennisViewModel.isWon, content: {
                 getAlert()
+                
             })
         }
     }
+    
+
     
     func getAlert() -> Alert {
         Alert(title: Text(tennisViewModel.winner + " has won 🏆"),
@@ -64,6 +68,7 @@ struct gameView: View {
                 tennisViewModel.score1 = 0
                 tennisViewModel.score2 = 0
                 tennisViewModel.matchPoint = false
+                tennisViewModel.isWon = false
               }),
               secondaryButton: .destructive(Text("Exit"), action: {
                 presentationMode.wrappedValue.dismiss()
