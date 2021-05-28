@@ -11,9 +11,11 @@ struct gameView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var tennisViewModel: TennisViewModel
     @State var warningText: String = "Match Point"
+    @State var isHistory: Bool = false
     var body: some View {
         ScrollView {
             VStack {
+                
                 if tennisViewModel.matchPoint {
                     matchPointView(warningText: $warningText)
                 }
@@ -23,13 +25,13 @@ struct gameView: View {
                     tennisViewModel.score1 += 1
                     tennisViewModel.checkGamePoint()
                 }, label: {
-                    Text("Player 1")
+                    Text("Ankish")
                 })
                 Button(action: {
                     tennisViewModel.score2 += 1
                     tennisViewModel.checkGamePoint()
                 }, label: {
-                    Text("Player 2")
+                    Text("Somu")
                 })
                 
                 Button(action: {
@@ -53,8 +55,12 @@ struct gameView: View {
                 .offset(y: 30)
                 
             }
+            .sheet(isPresented: $isHistory, content: {
+                TournamentScoreView()
+            })
             .alert(isPresented: $tennisViewModel.isWon, content: {
                 getAlert()
+
                 
             })
         }
@@ -70,8 +76,12 @@ struct gameView: View {
                 tennisViewModel.matchPoint = false
                 tennisViewModel.isWon = false
               }),
-              secondaryButton: .destructive(Text("Exit"), action: {
-                presentationMode.wrappedValue.dismiss()
+              secondaryButton: .default(Text("Match History"), action: {
+                tennisViewModel.score1 = 0
+                tennisViewModel.score2 = 0
+                tennisViewModel.matchPoint = false
+                tennisViewModel.isWon = false
+                isHistory.toggle()
               }))
     }
 
