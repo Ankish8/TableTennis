@@ -9,36 +9,32 @@ import SwiftUI
 
 struct gameView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State var score1: Int = 0
-    @State var score2: Int = 0
-    @State var matchPoint: Bool = false
+    @ObservedObject var tennisViewModel = TennisViewModel()
     @State var warningText: String = "Match Point"
-    @State var isWon: Bool = false
-    @State var winner: String = ""
     var body: some View {
         ScrollView {
             VStack {
-                if matchPoint {
+                if tennisViewModel.matchPoint {
                     matchPointView(warningText: $warningText)
                 }
-                Text("\(score1)  -  \(score2)")
+                Text("\(tennisViewModel.score1)  -  \(tennisViewModel.score2)")
                     .font(.title2)
                 Button(action: {
-                    score1 += 1
-                    checkGamePoint()
+                    tennisViewModel.score1 += 1
+                    tennisViewModel.checkGamePoint()
                 }, label: {
                     Text("Player 1")
                 })
                 Button(action: {
-                    score2 += 1
-                    checkGamePoint()
+                    tennisViewModel.score2 += 1
+                    tennisViewModel.checkGamePoint()
                 }, label: {
                     Text("Player 2")
                 })
                 
                 Button(action: {
-                    score1 = 0
-                    score2 = 0
+                    tennisViewModel.score1 = 0
+                    tennisViewModel.score2 = 0
                 }, label: {
                     Text("Reset")
                         .foregroundColor(.green)
@@ -55,54 +51,24 @@ struct gameView: View {
                 })
                 .offset(y: 30)
             }
-            .alert(isPresented: $isWon, content: {
+            .alert(isPresented: $tennisViewModel.isWon, content: {
                 getAlert()
             })
         }
     }
     
     func getAlert() -> Alert {
-        Alert(title: Text(winner + " has won 🏆"),
+        Alert(title: Text(tennisViewModel.winner + " has won 🏆"),
               primaryButton: .default(Text("New Match"), action: {
-                score1 = 0
-                score2 = 0
-                matchPoint = false
+                tennisViewModel.score1 = 0
+                tennisViewModel.score2 = 0
+                tennisViewModel.matchPoint = false
               }),
               secondaryButton: .destructive(Text("Exit"), action: {
                 presentationMode.wrappedValue.dismiss()
               }))
-//        return Alert(title: Text(winner + " has won 🏆"))
     }
 
-    func checkGamePoint() {
-        if score1 <= 10 && score2 <= 10 {
-            if (score1 == 10 && score2 == 10) {
-                matchPoint = false
-            }
-            else if (score1 == 10 || score2 == 10) {
-                matchPoint = true
-            }
-        }
-        else {
-             
-            if score1 > score2 + 1 {
-                winner = "Player 1"
-                isWon.toggle()
-                
-            }
-            else if score2 > score1 + 1 {
-                winner = "Player 2"
-                isWon.toggle()
-                
-            }
-            else if score1 != score2 {
-               matchPoint = true
-           }
-            else {
-                matchPoint = false
-            }
-        }
-    }
     
 }
 
@@ -120,6 +86,7 @@ struct matchPointView: View {
 
 struct gameView_Previews: PreviewProvider {
     static var previews: some View {
-        gameView()
+        let tennisViewModel: TennisViewModel = TennisViewModel()
+        gameView( tennisViewModel: tennisViewModel)
     }
 }

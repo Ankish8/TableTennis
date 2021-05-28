@@ -10,20 +10,29 @@ import SwiftUI
 struct ContentView: View {
     @State var isClicked: Bool = false
     var body: some View {
-        VStack {
-            Text("Are you ready?").padding()
-            Image("logo")
-                .resizable()
-                .scaledToFit()
-            Spacer()
-            Spacer()
-            
-            NavigationLink(
-                destination: gameView(),
-                isActive: $isClicked,
-                label: {
-                    Text("Start Game")
-                })
+        ScrollView {
+            VStack {
+                Text("Are you ready?").padding()
+                Image("logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 70)
+                Spacer()
+                Spacer()
+                
+                NavigationLink(
+                    destination: gameView(),
+                    isActive: $isClicked,
+                    label: {
+                        Text("Start Game")
+                    })
+                NavigationLink(
+                    destination: gameView(),
+                    isActive: $isClicked,
+                    label: {
+                        Text("Settings")
+                    })
+            }
         }
         
     }

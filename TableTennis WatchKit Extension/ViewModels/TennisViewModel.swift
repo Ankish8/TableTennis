@@ -6,12 +6,13 @@
 //
 
 import Foundation
-class tennisViewModel {
+class TennisViewModel : ObservableObject {
     @Published var score1: Int = 0
     @Published var score2: Int = 0
     @Published var matchPoint: Bool = false
     @Published var isWon: Bool = false
     @Published var winner: String = ""
+    @Published var maxPoints: Int = 11
     
     func checkGamePoint() {
         if score1 <= 10 && score2 <= 10 {
@@ -42,4 +43,5 @@ class tennisViewModel {
             }
         }
     }
+    
 }
