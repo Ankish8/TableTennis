@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State var maxPoints: Int = 11
+
+    @EnvironmentObject var tennisViewModel: TennisViewModel
     var body: some View {
         VStack {
             List {
-                Picker(selection: $maxPoints, label: Text("Match Points")) {
-                    Text("11").tag(1)
-                    Text("21").tag(2)
+                Picker(selection: $tennisViewModel.maxPoints, label: Text("Match Points")) {
+                    Text("11").tag(11)
+                    Text("21").tag(21)
                 }
                 
             }
@@ -26,5 +27,6 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
+            .environmentObject(TennisViewModel())
     }
 }

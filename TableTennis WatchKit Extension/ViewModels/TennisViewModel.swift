@@ -15,11 +15,11 @@ class TennisViewModel : ObservableObject {
     @Published var maxPoints: Int = 11
     
     func checkGamePoint() {
-        if score1 <= 10 && score2 <= 10 {
-            if (score1 == 10 && score2 == 10) {
+        if score1 <= (maxPoints - 1)  && score2 <= (maxPoints - 1) {
+            if (score1 == (maxPoints - 1) && score2 == (maxPoints - 1)) {
                 matchPoint = false
             }
-            else if (score1 == 10 || score2 == 10) {
+            else if (score1 == (maxPoints - 1) || score2 == (maxPoints - 1)) {
                 matchPoint = true
             }
         }

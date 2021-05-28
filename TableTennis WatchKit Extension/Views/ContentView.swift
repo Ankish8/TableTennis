@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var isClicked: Bool = false
+    
+    @State var isStartGame: Bool = false
+    @State var isSettings: Bool = false
     var body: some View {
         ScrollView {
             VStack {
@@ -22,13 +24,13 @@ struct ContentView: View {
                 
                 NavigationLink(
                     destination: gameView(),
-                    isActive: $isClicked,
+                    isActive: $isStartGame,
                     label: {
                         Text("Start Game")
                     })
                 NavigationLink(
-                    destination: gameView(),
-                    isActive: $isClicked,
+                    destination: SettingsView(),
+                    isActive: $isSettings,
                     label: {
                         Text("Settings")
                     })
@@ -43,7 +45,9 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+        
                 ContentView()
+                    .environmentObject(TennisViewModel())
         
     }
 }

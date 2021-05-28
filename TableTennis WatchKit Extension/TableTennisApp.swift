@@ -9,13 +9,15 @@ import SwiftUI
 
 @main
 struct TableTennisApp: App {
+    @StateObject var tennisViewModel: TennisViewModel = TennisViewModel()
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
                 ContentView()
             }
+            .environmentObject(tennisViewModel)
         }
-
+        
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")
     }
 }

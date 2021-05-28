@@ -9,7 +9,7 @@ import SwiftUI
 
 struct gameView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var tennisViewModel = TennisViewModel()
+    @EnvironmentObject var tennisViewModel: TennisViewModel
     @State var warningText: String = "Match Point"
     var body: some View {
         ScrollView {
@@ -86,7 +86,8 @@ struct matchPointView: View {
 
 struct gameView_Previews: PreviewProvider {
     static var previews: some View {
-        let tennisViewModel: TennisViewModel = TennisViewModel()
-        gameView( tennisViewModel: tennisViewModel)
+        
+        gameView()
+            .environmentObject(TennisViewModel())
     }
 }
