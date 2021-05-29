@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MatchHistory: View {
     @EnvironmentObject var tennisViewModel: TennisViewModel
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -27,6 +28,7 @@ struct MatchHistory: View {
             }
         }
         
+        
     }
 }
 
@@ -38,7 +40,9 @@ struct TournamentScoreView_Previews: PreviewProvider {
 }
 
 struct SummaryView: View {
+    
     @EnvironmentObject var tennisViewModel: TennisViewModel
+    @State var deleteHistory: Bool = false
     var body: some View {
         VStack(alignment: .leading) {
             Text("Summary")
@@ -58,7 +62,16 @@ struct SummaryView: View {
                 Text("Lost: \(tennisViewModel.matchcount - tennisViewModel.player2TotalWin)")
             }
             .font(.caption2)
+            .alert(isPresented: $deleteHistory, content: {
+                Alert(title: Text("Deleted all the recent matches"))
+            })
         }
+        
         .font(.caption)
+        Button("Delete History") {
+            tennisViewModel.deleteHistory()
+            deleteHistory.toggle()
+        }
+        
     }
 }

@@ -26,7 +26,9 @@ class TennisViewModel : ObservableObject {
         let newMatch = Matches(player1Score: score1, player2Score: score2, winnerName: winner, MatchCount: matchcount)
         match.append(newMatch)
     }
-    
+    func deleteHistory() {
+        match.removeAll()
+    }
     func checkGamePoint() {
         if score1 <= (maxPoints - 1)  && score2 <= (maxPoints - 1) {
             if (score1 == (maxPoints - 1) && score2 == (maxPoints - 1)) {
@@ -63,6 +65,7 @@ class TennisViewModel : ObservableObject {
             }
         }
     }
+    
     func updateScore(score: Int, side1: Bool) {
         if side1 {
             self.score1 = score + 1
