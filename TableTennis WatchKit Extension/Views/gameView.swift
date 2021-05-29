@@ -13,38 +13,45 @@ struct gameView: View {
     
     @State var isHistory: Bool = false
     var body: some View {
-        ScrollView {
-            VStack {
-                
-                ScoreBoard()
-                
-                Button(action: {
-                    tennisViewModel.reset()
-                }, label: {
-                    Text("Reset")
-                        .foregroundColor(.green)
+        TabView {
+            ScrollView {
+                VStack {
                     
-                })
-                .offset(y: 30)
-                
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Text("Cancel")
-                        .foregroundColor(.red)
+                    ScoreBoard()
                     
+                    Button(action: {
+                        tennisViewModel.reset()
+                    }, label: {
+                        Text("Reset")
+                            .foregroundColor(.green)
+                        
+                    })
+                    .offset(y: 30)
+                    
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("Cancel")
+                            .foregroundColor(.red)
+                        
+                    })
+                    .offset(y: 30)
+                    
+                }
+                .sheet(isPresented: $isHistory, content: {
+                    MatchHistory()
                 })
-                .offset(y: 30)
-                
-            }
-            .sheet(isPresented: $isHistory, content: {
-                MatchHistory()
-            })
-            .alert(isPresented: $tennisViewModel.isWon, content: {
-                getAlert()
+                .alert(isPresented: $tennisViewModel.isWon, content: {
+                    getAlert()
 
-                
-            })
+                    
+                })
+            }
+            .tabItem { Text("Match View") }
+            MatchHistory()
+                .tabItem {
+                    Text("Second one")
+                }
         }
     }
     
@@ -108,7 +115,6 @@ struct ScoreBoard: View {
         }*/
         VStack {
             HStack {
-                
                     ZStack {
                         Rectangle()
                             .frame(width: 76, height: 99, alignment: .center)
