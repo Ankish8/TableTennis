@@ -24,6 +24,7 @@
 		A298BC5826615E6F005B6E34 /* TournamentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298BC5726615E6F005B6E34 /* TournamentViewModel.swift */; };
 		A298BC5A26616193005B6E34 /* MatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298BC5926616193005B6E34 /* MatchModel.swift */; };
 		A298BC5C266165E3005B6E34 /* MatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298BC5B266165E3005B6E34 /* MatchListView.swift */; };
+		A298BC602662248A005B6E34 /* RecentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298BC5F2662248A005B6E34 /* RecentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		A298BC5726615E6F005B6E34 /* TournamentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentViewModel.swift; sourceTree = "<group>"; };
 		A298BC5926616193005B6E34 /* MatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchModel.swift; sourceTree = "<group>"; };
 		A298BC5B266165E3005B6E34 /* MatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListView.swift; sourceTree = "<group>"; };
+		A298BC5F2662248A005B6E34 /* RecentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				A298BC4E26613DCB005B6E34 /* TableTennis-Bridging-Header.h */,
 				A298BC4F26613DCB005B6E34 /* TableTennis WatchKit App-Bridging-Header.h */,
 				A298BC52266140B1005B6E34 /* MatchHistory.swift */,
+				A298BC5F2662248A005B6E34 /* RecentView.swift */,
 				A298BC5B266165E3005B6E34 /* MatchListView.swift */,
 			);
 			path = Views;
@@ -324,6 +327,7 @@
 				A22BBC412660C96B00B20019 /* NotificationController.swift in Sources */,
 				A276A86426610E1700193242 /* TennisViewModel.swift in Sources */,
 				A298BC5C266165E3005B6E34 /* MatchListView.swift in Sources */,
+				A298BC602662248A005B6E34 /* RecentView.swift in Sources */,
 				A22BBC3F2660C96B00B20019 /* ContentView.swift in Sources */,
 				A22BBC452660C96B00B20019 /* ComplicationController.swift in Sources */,
 				A22BBC3D2660C96B00B20019 /* TableTennisApp.swift in Sources */,

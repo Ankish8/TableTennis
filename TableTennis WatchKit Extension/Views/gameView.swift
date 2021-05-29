@@ -88,7 +88,7 @@ struct ScoreBoard: View {
     @EnvironmentObject var tennisViewModel: TennisViewModel
     @State var warningText: String = "Match Point"
     var body: some View {
-        VStack {
+        /*VStack {
             if tennisViewModel.matchPoint {
                 matchPointView(warningText: $warningText)
             }
@@ -105,6 +105,94 @@ struct ScoreBoard: View {
                 Text("Somu")
             })
             
+        }*/
+        VStack {
+            HStack {
+                
+                    ZStack {
+                        Rectangle()
+                            .frame(width: 76, height: 99, alignment: .center)
+                            
+                            .foregroundColor(Color(#colorLiteral(red: 0.1254901961, green: 0.5803921569, blue: 0.9803921569, alpha: 1)))
+                            .cornerRadius(15)
+                        VStack {
+                            
+                            Text("\(tennisViewModel.score1)")
+                                .font(.title)
+                                .offset(y: -5)
+                                .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+                            Rectangle()
+                                .frame(width: 54, height: 0.89)
+                                .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+                                .offset(y: -15)
+                            Text("Ankish")
+                                .font(.system(size: 15))
+                                .offset(y: -10)
+                        }
+                            
+                    }
+                    .onTapGesture {
+                        tennisViewModel.updateScore(score: tennisViewModel.score1, side1: true)
+                    }
+                    
+                    
+                
+                Spacer()
+                
+                Spacer()
+                ZStack {
+                    Rectangle()
+                        .frame(width: 76, height: 99, alignment: .center)
+                        
+                        .foregroundColor(Color(#colorLiteral(red: 0.2039215686, green: 0.7803921569, blue: 0.3490196078, alpha: 1)))
+                        .cornerRadius(15)
+                    VStack {
+                        
+                        Text("\(tennisViewModel.score2)")
+                            .font(.title)
+                            .offset(y: -5)
+                            .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+                        Rectangle()
+                            .frame(width: 54, height: 0.89)
+                            .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+                            .offset(y: -15)
+                        Text("Somu")
+                            .font(.system(size: 15))
+                            .offset(y: -10)
+                    }
+                        
+                }
+                .onTapGesture {
+                    tennisViewModel.updateScore(score: tennisViewModel.score2, side1: false)
+                }
+            }
+            Spacer()
+            HStack {
+                Image(systemName: "clock")
+                Text("Recent Matches").font(.system(size: 15))
+                Spacer()
+            }
+            .padding(.bottom, 3)
+            .padding(.top, 3)
+            
+            HStack {
+                if (tennisViewModel.matchcount == 0) {
+                    Text("There are no recent mathes to show. 😕")
+                        .font(.system(size: 12))
+                        .foregroundColor(.gray)
+                    
+                }
+                else {
+                    ForEach(tennisViewModel.match) { recent in
+                        RecentView(recent: recent)
+                    }
+                    Spacer()
+                }
+               
+            }
+            
+            
         }
+        .padding()
     }
 }
