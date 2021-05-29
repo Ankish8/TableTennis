@@ -50,14 +50,14 @@ struct SummaryView: View {
                 .foregroundColor(.gray)
             Divider()
             HStack {
-                Text("Ankish: ")
+                Text("\(tennisViewModel.playerName1): ")
                 Text("Won: \(tennisViewModel.player1TotalWin)")
                 Text("Lost: \(tennisViewModel.matchcount - tennisViewModel.player1TotalWin)")
             }
             .font(.caption2)
             
             HStack {
-                Text("Somu: ")
+                Text("\(tennisViewModel.playerName2): ")
                 Text("Won: \(tennisViewModel.player2TotalWin)")
                 Text("Lost: \(tennisViewModel.matchcount - tennisViewModel.player2TotalWin)")
             }

@@ -26,6 +26,7 @@ struct MatchListView: View {
                     .frame(width: 18, height: 18, alignment: .center)
                     .background(item.player1Score > item.player2Score ? Color.green : Color.red)
                     .foregroundColor(item.player1Score > item.player2Score ? Color.black : Color.white)
+                    
                     Spacer()
                 Text("\(tennisViewModel.playerName2):")
                     .font(.footnote)
@@ -48,7 +49,7 @@ struct MatchListView: View {
 }
 
 struct MatchListView_Previews: PreviewProvider {
-    static var item1 = Matches(player1Score: 10, player2Score: 15, winnerName: "Ankish", MatchCount: 1)
+    static var item1 = Matches(id: UUID().uuidString, player1Score: 10, player2Score: 15, winnerName: "Ankish", MatchCount: 1)
     static var previews: some View {
         
         MatchListView(item: item1)

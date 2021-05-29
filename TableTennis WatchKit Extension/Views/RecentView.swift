@@ -28,7 +28,7 @@ struct RecentView: View {
 }
 
 struct RecentView_Previews: PreviewProvider {
-    static var recent1 = Matches(player1Score: 0, player2Score: 0, winnerName: "Ankish", MatchCount: 1)
+    static var recent1 = Matches(id: UUID().uuidString, player1Score: 0, player2Score: 0, winnerName: "Ankish", MatchCount: 1)
     static var previews: some View {
         RecentView(recent: recent1)
             .environmentObject(TennisViewModel())

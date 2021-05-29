@@ -7,8 +7,8 @@
 
 
 import Foundation
-struct Matches : Identifiable {
-    let id = UUID()
+struct Matches : Identifiable, Codable {
+    let id: String
     let player1Score: Int
     let player2Score: Int
     let winnerName: String

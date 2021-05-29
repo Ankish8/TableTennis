@@ -10,7 +10,15 @@ import SwiftUI
 
 import Foundation
 class TennisViewModel : ObservableObject {
-    @Published var match: [Matches] = []
+    @Published var match: [Matches] = [] {
+        didSet {
+            saveData()
+        }
+    }
+    init() {
+        getData()
+    }
+    let matchKey: String = "match_list"
     @Published var score1: Int = 0
     @Published var score2: Int = 0
     @Published var matchPoint: Bool = false
@@ -24,7 +32,7 @@ class TennisViewModel : ObservableObject {
     @Published var player2TotalWin: Int = 0
     
     func updateMatch(score1 : Int, score2 : Int, winnerName: String, MatchCount: Int) {
-        let newMatch = Matches(player1Score: score1, player2Score: score2, winnerName: winner, MatchCount: matchcount)
+        let newMatch = Matches(id: UUID().uuidString, player1Score: score1, player2Score: score2, winnerName: winner, MatchCount: matchcount)
         match.append(newMatch)
     }
     func deleteHistory() {
@@ -43,7 +51,7 @@ class TennisViewModel : ObservableObject {
         else {
              
             if score1 > score2 + 1 {
-                winner = "Ankish"
+                winner = playerName1
                 matchcount += 1
                 player1TotalWin += 1
                 updateMatch(score1: score1, score2: score2, winnerName: winner, MatchCount: matchcount)
@@ -51,7 +59,7 @@ class TennisViewModel : ObservableObject {
                 
             }
             else if score2 > score1 + 1 {
-                winner = "Somu"
+                winner = playerName2
                 player2TotalWin += 1
                 matchcount += 1
                 updateMatch(score1: score1, score2: score2, winnerName: winner, MatchCount: matchcount)
@@ -82,6 +90,23 @@ class TennisViewModel : ObservableObject {
         score2 = 0
         matchPoint = false
         isWon = false
+    }
+    func saveData() {
+        if let encodedData = try? JSONEncoder().encode(match) {
+            UserDefaults.standard.set(encodedData, forKey: matchKey)
+        }
+    }
+    
+    func getData() {
+        guard
+            let data = UserDefaults.standard.data(forKey: matchKey),
+            let savedData = try? JSONDecoder().decode([Matches].self, from: data)
+        else {
+            return
+            
+        }
+        self.match = savedData
+        
     }
     
 }
