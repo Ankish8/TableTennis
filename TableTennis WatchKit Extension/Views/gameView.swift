@@ -59,13 +59,17 @@ struct gameView: View {
     
     func getAlert() -> Alert {
         Alert(title: Text(tennisViewModel.winner + " has won 🏆"),
-              primaryButton: .default(Text("New Match"), action: {
+              dismissButton: .default(Text("New Match"), action: {
                 tennisViewModel.reset()
-              }),
-              secondaryButton: .default(Text("Match History"), action: {
-                tennisViewModel.reset()
-                isHistory.toggle()
               }))
+//        Alert(title: Text(tennisViewModel.winner + " has won 🏆"),
+//              primaryButton: .default(Text("New Match"), action: {
+//                tennisViewModel.reset()
+//              }),
+//              secondaryButton: .default(Text("Match History"), action: {
+//                tennisViewModel.reset()
+//                isHistory.toggle()
+//              }))
     }
 
     
