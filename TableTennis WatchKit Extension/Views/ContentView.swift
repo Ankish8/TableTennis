@@ -42,7 +42,7 @@ struct ContentView: View {
             .tabItem {
                 Text("This is a try")
             }
-            TournamentScoreView()
+            MatchHistory()
                 .tabItem {
                     Text("Second one")
                 }

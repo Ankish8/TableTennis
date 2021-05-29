@@ -18,9 +18,9 @@ class TennisViewModel : ObservableObject {
     @Published var winner: String = ""
     @Published var maxPoints: Int = 11
     @Published var matchcount: Int = 0
-    @Published var playerName: [String] = [
-    "Ankish", "Somu", "Swati", "Papaji"
-    ]
+    @Published var playerName: [String] = ["Ankish", "Somu", "Swati", "Papaji"]
+    @Published var player1TotalWin: Int = 0
+    @Published var player2TotalWin: Int = 0
     
     func updateMatch(score1 : Int, score2 : Int, winnerName: String, MatchCount: Int) {
         let newMatch = Matches(player1Score: score1, player2Score: score2, winnerName: winner, MatchCount: matchcount)
@@ -42,12 +42,14 @@ class TennisViewModel : ObservableObject {
             if score1 > score2 + 1 {
                 winner = "Ankish"
                 matchcount += 1
+                player1TotalWin += 1
                 updateMatch(score1: score1, score2: score2, winnerName: winner, MatchCount: matchcount)
                 isWon.toggle()
                 
             }
             else if score2 > score1 + 1 {
                 winner = "Somu"
+                player2TotalWin += 1
                 matchcount += 1
                 updateMatch(score1: score1, score2: score2, winnerName: winner, MatchCount: matchcount)
                 isWon.toggle()
@@ -60,6 +62,22 @@ class TennisViewModel : ObservableObject {
                 matchPoint = false
             }
         }
+    }
+    func updateScore(score: Int, side1: Bool) {
+        if side1 {
+            self.score1 = score + 1
+        }
+        else {
+            self.score2 = score + 1
+        }
+        
+        checkGamePoint()
+    }
+    func reset() {
+        score1 = 0
+        score2 = 0
+        matchPoint = false
+        isWon = false
     }
     
 }

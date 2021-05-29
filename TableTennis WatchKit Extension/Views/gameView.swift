@@ -10,34 +10,16 @@ import SwiftUI
 struct gameView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var tennisViewModel: TennisViewModel
-    @State var warningText: String = "Match Point"
+    
     @State var isHistory: Bool = false
     var body: some View {
         ScrollView {
             VStack {
                 
-                if tennisViewModel.matchPoint {
-                    matchPointView(warningText: $warningText)
-                }
-                Text("\(tennisViewModel.score1)  -  \(tennisViewModel.score2)")
-                    .font(.title2)
-                Button(action: {
-                    tennisViewModel.score1 += 1
-                    tennisViewModel.checkGamePoint()
-                }, label: {
-                    Text("Ankish")
-                })
-                Button(action: {
-                    tennisViewModel.score2 += 1
-                    tennisViewModel.checkGamePoint()
-                }, label: {
-                    Text("Somu")
-                })
+                ScoreBoard()
                 
                 Button(action: {
-                    tennisViewModel.score1 = 0
-                    tennisViewModel.score2 = 0
-                    tennisViewModel.matchPoint = false
+                    tennisViewModel.reset()
                 }, label: {
                     Text("Reset")
                         .foregroundColor(.green)
@@ -56,7 +38,7 @@ struct gameView: View {
                 
             }
             .sheet(isPresented: $isHistory, content: {
-                TournamentScoreView()
+                MatchHistory()
             })
             .alert(isPresented: $tennisViewModel.isWon, content: {
                 getAlert()
@@ -71,16 +53,10 @@ struct gameView: View {
     func getAlert() -> Alert {
         Alert(title: Text(tennisViewModel.winner + " has won 🏆"),
               primaryButton: .default(Text("New Match"), action: {
-                tennisViewModel.score1 = 0
-                tennisViewModel.score2 = 0
-                tennisViewModel.matchPoint = false
-                tennisViewModel.isWon = false
+                tennisViewModel.reset()
               }),
               secondaryButton: .default(Text("Match History"), action: {
-                tennisViewModel.score1 = 0
-                tennisViewModel.score2 = 0
-                tennisViewModel.matchPoint = false
-                tennisViewModel.isWon = false
+                tennisViewModel.reset()
                 isHistory.toggle()
               }))
     }
@@ -105,5 +81,30 @@ struct gameView_Previews: PreviewProvider {
         
         gameView()
             .environmentObject(TennisViewModel())
+    }
+}
+
+struct ScoreBoard: View {
+    @EnvironmentObject var tennisViewModel: TennisViewModel
+    @State var warningText: String = "Match Point"
+    var body: some View {
+        VStack {
+            if tennisViewModel.matchPoint {
+                matchPointView(warningText: $warningText)
+            }
+            Text("\(tennisViewModel.score1)  -  \(tennisViewModel.score2)")
+                .font(.title2)
+            Button(action: {
+                tennisViewModel.updateScore(score: tennisViewModel.score1, side1: true)
+            }, label: {
+                Text("Ankish")
+            })
+            Button(action: {
+                tennisViewModel.updateScore(score: tennisViewModel.score2, side1: false)
+            }, label: {
+                Text("Somu")
+            })
+            
+        }
     }
 }

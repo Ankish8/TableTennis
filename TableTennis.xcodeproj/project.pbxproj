@@ -20,8 +20,7 @@
 		A22BBC642660D91600B20019 /* gameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22BBC632660D91600B20019 /* gameView.swift */; };
 		A276A86426610E1700193242 /* TennisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A276A86326610E1700193242 /* TennisViewModel.swift */; };
 		A276A86A266114A900193242 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A276A869266114A900193242 /* SettingsView.swift */; };
-		A298BC5126613DCB005B6E34 /* TournamentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298BC5026613DCB005B6E34 /* TournamentView.swift */; };
-		A298BC53266140B1005B6E34 /* TournamentScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298BC52266140B1005B6E34 /* TournamentScoreView.swift */; };
+		A298BC53266140B1005B6E34 /* MatchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298BC52266140B1005B6E34 /* MatchHistory.swift */; };
 		A298BC5826615E6F005B6E34 /* TournamentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298BC5726615E6F005B6E34 /* TournamentViewModel.swift */; };
 		A298BC5A26616193005B6E34 /* MatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298BC5926616193005B6E34 /* MatchModel.swift */; };
 		A298BC5C266165E3005B6E34 /* MatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298BC5B266165E3005B6E34 /* MatchListView.swift */; };
@@ -89,8 +88,7 @@
 		A276A869266114A900193242 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A298BC4E26613DCB005B6E34 /* TableTennis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TableTennis-Bridging-Header.h"; sourceTree = "<group>"; };
 		A298BC4F26613DCB005B6E34 /* TableTennis WatchKit App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TableTennis WatchKit App-Bridging-Header.h"; sourceTree = "<group>"; };
-		A298BC5026613DCB005B6E34 /* TournamentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentView.swift; sourceTree = "<group>"; };
-		A298BC52266140B1005B6E34 /* TournamentScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentScoreView.swift; sourceTree = "<group>"; };
+		A298BC52266140B1005B6E34 /* MatchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistory.swift; sourceTree = "<group>"; };
 		A298BC5726615E6F005B6E34 /* TournamentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentViewModel.swift; sourceTree = "<group>"; };
 		A298BC5926616193005B6E34 /* MatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchModel.swift; sourceTree = "<group>"; };
 		A298BC5B266165E3005B6E34 /* MatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListView.swift; sourceTree = "<group>"; };
@@ -167,10 +165,9 @@
 				A22BBC3E2660C96B00B20019 /* ContentView.swift */,
 				A22BBC632660D91600B20019 /* gameView.swift */,
 				A276A869266114A900193242 /* SettingsView.swift */,
-				A298BC5026613DCB005B6E34 /* TournamentView.swift */,
 				A298BC4E26613DCB005B6E34 /* TableTennis-Bridging-Header.h */,
 				A298BC4F26613DCB005B6E34 /* TableTennis WatchKit App-Bridging-Header.h */,
-				A298BC52266140B1005B6E34 /* TournamentScoreView.swift */,
+				A298BC52266140B1005B6E34 /* MatchHistory.swift */,
 				A298BC5B266165E3005B6E34 /* MatchListView.swift */,
 			);
 			path = Views;
@@ -324,14 +321,13 @@
 				A22BBC642660D91600B20019 /* gameView.swift in Sources */,
 				A298BC5A26616193005B6E34 /* MatchModel.swift in Sources */,
 				A276A86A266114A900193242 /* SettingsView.swift in Sources */,
-				A298BC5126613DCB005B6E34 /* TournamentView.swift in Sources */,
 				A22BBC412660C96B00B20019 /* NotificationController.swift in Sources */,
 				A276A86426610E1700193242 /* TennisViewModel.swift in Sources */,
 				A298BC5C266165E3005B6E34 /* MatchListView.swift in Sources */,
 				A22BBC3F2660C96B00B20019 /* ContentView.swift in Sources */,
 				A22BBC452660C96B00B20019 /* ComplicationController.swift in Sources */,
 				A22BBC3D2660C96B00B20019 /* TableTennisApp.swift in Sources */,
-				A298BC53266140B1005B6E34 /* TournamentScoreView.swift in Sources */,
+				A298BC53266140B1005B6E34 /* MatchHistory.swift in Sources */,
 				A298BC5826615E6F005B6E34 /* TournamentViewModel.swift in Sources */,
 				A22BBC432660C96B00B20019 /* NotificationView.swift in Sources */,
 			);
