@@ -12,8 +12,52 @@ struct ContentView: View {
     @State var isStartGame: Bool = false
     @State var isSettings: Bool = false
     @State var isTournamentScore: Bool = false
+    @State private var selection: Int = 2
     var body: some View {
-        TabView {
+        TabView(selection: $selection) {
+            SettingsView()
+                .tabItem { Text("Settings Page") }
+                .tag(1)
+            ZStack {
+                HStack {
+                    VStack(alignment: .leading, spacing: -10) {
+                        Text("Are you")
+                        Text("Ready")
+                            .foregroundColor(.gray)
+                        Text("To play?")
+                        Spacer()
+                        Image(systemName: "arrow.right")
+                            .font(.title3)
+                            .offset(y: 20)
+                            .foregroundColor(.gray)
+                            
+                    }
+                    .font(.title)
+                    .offset(y: -20)
+                    Spacer()
+                }
+                Image("logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                    .offset(x: 50, y: 50)
+            }
+            .padding()
+            .tabItem { Text("Home Page") }.tag(2)
+            gameView()
+                .tabItem { Text("Game View") }.tag(3)
+            MatchHistory()
+                .tabItem { Text("Match History") }.tag(4)
+        }
+        
+        
+        
+        
+        
+        
+        
+  //OLD UI
+        /*TabView {
             ScrollView {
                 VStack {
                     Text("Are you ready?").padding()
@@ -46,7 +90,7 @@ struct ContentView: View {
                 .tabItem {
                     Text("Second one")
                 }
-        }
+        }*/
         
     }
 }

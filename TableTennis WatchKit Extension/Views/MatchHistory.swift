@@ -72,6 +72,7 @@ struct SummaryView: View {
             tennisViewModel.deleteHistory()
             deleteHistory.toggle()
         }
+        .foregroundColor(.red)
         
     }
 }

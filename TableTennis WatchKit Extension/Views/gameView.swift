@@ -13,7 +13,7 @@ struct gameView: View {
     
     @State var isHistory: Bool = false
     var body: some View {
-        TabView {
+        
             ScrollView {
                 VStack {
                     
@@ -47,12 +47,8 @@ struct gameView: View {
                     
                 })
             }
-            .tabItem { Text("Match View") }
-            MatchHistory()
-                .tabItem {
-                    Text("Second one")
-                }
-        }
+            
+        
     }
     
 
