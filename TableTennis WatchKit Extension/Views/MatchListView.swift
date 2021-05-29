@@ -19,7 +19,7 @@ struct MatchListView: View {
             .padding(.bottom)
             
             HStack {
-                Text("\(tennisViewModel.playerName[0]):")
+                Text("\(tennisViewModel.playerName1):")
                     .font(.footnote)
                 Text("\(item.player1Score)")
                     .font(.footnote)
@@ -27,7 +27,7 @@ struct MatchListView: View {
                     .background(item.player1Score > item.player2Score ? Color.green : Color.red)
                     .foregroundColor(item.player1Score > item.player2Score ? Color.black : Color.white)
                     Spacer()
-                Text("Somu:")
+                Text("\(tennisViewModel.playerName2):")
                     .font(.footnote)
                 Text("\(item.player2Score)")
                     .font(.footnote)

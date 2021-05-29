@@ -6,7 +6,7 @@
 //
 
 
-
+import SwiftUI
 
 import Foundation
 class TennisViewModel : ObservableObject {
@@ -18,7 +18,8 @@ class TennisViewModel : ObservableObject {
     @Published var winner: String = ""
     @Published var maxPoints: Int = 11
     @Published var matchcount: Int = 0
-    @Published var playerName: [String] = ["Ankish", "Somu", "Swati", "Papaji"]
+    @AppStorage("p1") var playerName1 = "Ankish"
+    @AppStorage("p2") var playerName2 = "Somu"
     @Published var player1TotalWin: Int = 0
     @Published var player2TotalWin: Int = 0
     

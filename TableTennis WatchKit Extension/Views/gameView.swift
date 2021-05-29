@@ -131,7 +131,7 @@ struct ScoreBoard: View {
                                 .frame(width: 54, height: 0.89)
                                 .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                                 .offset(y: -15)
-                            Text("Ankish")
+                            Text("\(tennisViewModel.playerName1)")
                                 .font(.system(size: 15))
                                 .offset(y: -10)
                         }
@@ -162,7 +162,7 @@ struct ScoreBoard: View {
                             .frame(width: 54, height: 0.89)
                             .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                             .offset(y: -15)
-                        Text("Somu")
+                        Text("\(tennisViewModel.playerName2)")
                             .font(.system(size: 15))
                             .offset(y: -10)
                     }

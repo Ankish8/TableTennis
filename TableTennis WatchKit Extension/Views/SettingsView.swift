@@ -16,8 +16,20 @@ struct SettingsView: View {
                 Picker(selection: $tennisViewModel.maxPoints, label: Text("Match Points")) {
                     Text("11").tag(11)
                     Text("21").tag(21)
+                    
                 }
-                
+                Picker(selection: $tennisViewModel.playerName1, label: Text("Player 1"), content: {
+                    Text("Ankish").tag("Ankish")
+                    Text("Somu").tag("Somu")
+                    Text("Swati").tag("Swati")
+                    Text("Papaji").tag("Papaji")
+                })
+                Picker(selection: $tennisViewModel.playerName2, label: Text("Player 2"), content: {
+                    Text("Ankish").tag("Ankish")
+                    Text("Somu").tag("Somu")
+                    Text("Swati").tag("Swati")
+                    Text("Papaji").tag("Papaji")
+                })
             }
         }
         
