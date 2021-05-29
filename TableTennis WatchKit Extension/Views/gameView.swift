@@ -93,7 +93,7 @@ struct gameView_Previews: PreviewProvider {
 
 struct ScoreBoard: View {
     @EnvironmentObject var tennisViewModel: TennisViewModel
-    @State var warningText: String = "Match Point"
+    
     var body: some View {
         /*VStack {
             if tennisViewModel.matchPoint {
@@ -114,12 +114,27 @@ struct ScoreBoard: View {
             
         }*/
         VStack {
+            
+            if tennisViewModel.showView {
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(Color.red)
+                    .frame(width: 150, height: 30, alignment: .center)
+                    .overlay(
+                        Text("Match Point 🏆")
+                            .foregroundColor(.white)
+                    )
+                    .transition(.asymmetric(insertion: .move(edge: .top), removal: .move(edge: .top)))
+                    
+                    .animation(.easeInOut)
+                    
+            }
             HStack {
                     ZStack {
                         Rectangle()
+//                            .fill(RadialGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.9921568627, green: 0.262745098, blue: 0.262745098, alpha: 1)), Color.blue]), center: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, startRadius: /*@START_MENU_TOKEN@*/5/*@END_MENU_TOKEN@*/, endRadius: 160))
+                            .fill(AngularGradient(gradient: Gradient(colors: [Color.blue, Color.red]), center: .topLeading))
                             .frame(width: 76, height: 99, alignment: .center)
-                            
-                            .foregroundColor(Color(#colorLiteral(red: 0.1254901961, green: 0.5803921569, blue: 0.9803921569, alpha: 1)))
+//                            .foregroundColor(Color(#colorLiteral(red: 0.1254901961, green: 0.5803921569, blue: 0.9803921569, alpha: 1)))
                             .cornerRadius(15)
                         VStack {
                             
@@ -138,6 +153,7 @@ struct ScoreBoard: View {
                             
                     }
                     .onTapGesture {
+                        
                         tennisViewModel.updateScore(score: tennisViewModel.score1, side1: true)
                     }
                     
@@ -148,9 +164,13 @@ struct ScoreBoard: View {
                 Spacer()
                 ZStack {
                     Rectangle()
+                        .fill(AngularGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.2039215686, green: 0.7803921569, blue: 0.3490196078, alpha: 1)), Color.red]), center: .topLeading))
+                        
+
+//                        .fill(RadialGradient(gradient: Gradient(colors: [Color.purple, Color.red]), center: .center, startRadius: 5, endRadius: 180))
                         .frame(width: 76, height: 99, alignment: .center)
                         
-                        .foregroundColor(Color(#colorLiteral(red: 0.2039215686, green: 0.7803921569, blue: 0.3490196078, alpha: 1)))
+//                        .foregroundColor(Color(#colorLiteral(red: 0.2039215686, green: 0.7803921569, blue: 0.3490196078, alpha: 1)))
                         .cornerRadius(15)
                     VStack {
                         
@@ -169,10 +189,12 @@ struct ScoreBoard: View {
                         
                 }
                 .onTapGesture {
+                    
                     tennisViewModel.updateScore(score: tennisViewModel.score2, side1: false)
                 }
             }
             Spacer()
+            
             HStack {
                 Image(systemName: "clock")
                 Text("Recent Matches").font(.system(size: 15))
@@ -182,15 +204,19 @@ struct ScoreBoard: View {
             .padding(.top, 3)
             
             HStack {
-                if (tennisViewModel.matchcount == 0) {
+                if (tennisViewModel.match.isEmpty) {
                     Text("There are no recent mathes to show. 😕")
                         .font(.system(size: 12))
                         .foregroundColor(.gray)
                     
                 }
                 else {
-                    ForEach(tennisViewModel.match) { recent in
-                        RecentView(recent: recent)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(tennisViewModel.match) { recent in
+                                RecentView(recent: recent)
+                            }
+                        }
                     }
                     Spacer()
                 }
@@ -200,5 +226,8 @@ struct ScoreBoard: View {
             
         }
         .padding()
+        
     }
+    
 }
+

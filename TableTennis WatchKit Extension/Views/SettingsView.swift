@@ -30,6 +30,7 @@ struct SettingsView: View {
                     Text("Swati").tag("Swati")
                     Text("Papaji").tag("Papaji")
                 })
+                
             }
         }
         

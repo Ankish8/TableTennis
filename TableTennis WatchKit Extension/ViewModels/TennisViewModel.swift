@@ -21,7 +21,7 @@ class TennisViewModel : ObservableObject {
     let matchKey: String = "match_list"
     @Published var score1: Int = 0
     @Published var score2: Int = 0
-    @Published var matchPoint: Bool = false
+//    @Published var matchPoint: Bool = false
     @Published var isWon: Bool = false
     @Published var winner: String = ""
     @Published var maxPoints: Int = 11
@@ -30,6 +30,8 @@ class TennisViewModel : ObservableObject {
     @AppStorage("p2") var playerName2 = "Somu"
     @Published var player1TotalWin: Int = 0
     @Published var player2TotalWin: Int = 0
+    @Published var showView: Bool = false
+    
     
     func updateMatch(score1 : Int, score2 : Int, winnerName: String, MatchCount: Int) {
         let newMatch = Matches(id: UUID().uuidString, player1Score: score1, player2Score: score2, winnerName: winner, MatchCount: matchcount)
@@ -41,11 +43,11 @@ class TennisViewModel : ObservableObject {
     func checkGamePoint() {
         if score1 <= (maxPoints - 1)  && score2 <= (maxPoints - 1) {
             if (score1 == (maxPoints - 1) && score2 == (maxPoints - 1)) {
-                matchPoint = false
+                showView = false
                 
             }
             else if (score1 == (maxPoints - 1) || score2 == (maxPoints - 1)) {
-                matchPoint = true
+                showView = true
             }
         }
         else {
@@ -67,10 +69,10 @@ class TennisViewModel : ObservableObject {
                 
             }
             else if score1 != score2 {
-               matchPoint = true
+               showView = true
            }
             else {
-                matchPoint = false
+                showView = false
             }
         }
     }
@@ -88,7 +90,7 @@ class TennisViewModel : ObservableObject {
     func reset() {
         score1 = 0
         score2 = 0
-        matchPoint = false
+        showView = false
         isWon = false
     }
     func saveData() {
@@ -108,5 +110,6 @@ class TennisViewModel : ObservableObject {
         self.match = savedData
         
     }
+    
     
 }
