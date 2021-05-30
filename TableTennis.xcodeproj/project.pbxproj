@@ -19,6 +19,7 @@
 		A22BBC4A2660C96B00B20019 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A22BBC492660C96B00B20019 /* Preview Assets.xcassets */; };
 		A22BBC642660D91600B20019 /* gameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22BBC632660D91600B20019 /* gameView.swift */; };
 		A241DA7E2663554F00C59E9D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A241DA7D2663554F00C59E9D /* HealthKit.framework */; };
+		A241DA802663708000C59E9D /* ScoreBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A241DA7F2663708000C59E9D /* ScoreBoardView.swift */; };
 		A276A86426610E1700193242 /* TennisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A276A86326610E1700193242 /* TennisViewModel.swift */; };
 		A276A86A266114A900193242 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A276A869266114A900193242 /* SettingsView.swift */; };
 		A298BC53266140B1005B6E34 /* MatchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298BC52266140B1005B6E34 /* MatchHistory.swift */; };
@@ -88,6 +89,7 @@
 		A22BBC632660D91600B20019 /* gameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameView.swift; sourceTree = "<group>"; };
 		A241DA7B2663554F00C59E9D /* TableTennis WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TableTennis WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		A241DA7D2663554F00C59E9D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.4.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		A241DA7F2663708000C59E9D /* ScoreBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardView.swift; sourceTree = "<group>"; };
 		A276A86326610E1700193242 /* TennisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisViewModel.swift; sourceTree = "<group>"; };
 		A276A869266114A900193242 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A298BC4E26613DCB005B6E34 /* TableTennis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TableTennis-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				A298BC52266140B1005B6E34 /* MatchHistory.swift */,
 				A298BC5F2662248A005B6E34 /* RecentView.swift */,
 				A298BC5B266165E3005B6E34 /* MatchListView.swift */,
+				A241DA7F2663708000C59E9D /* ScoreBoardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			files = (
 				A22BBC642660D91600B20019 /* gameView.swift in Sources */,
 				A298BC5A26616193005B6E34 /* MatchModel.swift in Sources */,
+				A241DA802663708000C59E9D /* ScoreBoardView.swift in Sources */,
 				A276A86A266114A900193242 /* SettingsView.swift in Sources */,
 				A22BBC412660C96B00B20019 /* NotificationController.swift in Sources */,
 				A276A86426610E1700193242 /* TennisViewModel.swift in Sources */,

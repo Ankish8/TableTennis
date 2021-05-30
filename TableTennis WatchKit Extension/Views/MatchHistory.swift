@@ -39,6 +39,7 @@ struct TournamentScoreView_Previews: PreviewProvider {
     }
 }
 
+// MARK: Summary View
 struct SummaryView: View {
     
     @EnvironmentObject var tennisViewModel: TennisViewModel

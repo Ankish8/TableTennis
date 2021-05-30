@@ -37,7 +37,7 @@ struct SettingsView: View {
                     Text("Swati").tag("Swati")
                     Text("Papaji").tag("Papaji")
                 })
-                Text("BPM is \(value)")
+//                Text("BPM is \(value)")
                 
                 
             }

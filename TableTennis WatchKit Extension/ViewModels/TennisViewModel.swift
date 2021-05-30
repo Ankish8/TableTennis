@@ -21,7 +21,6 @@ class TennisViewModel : ObservableObject {
     let matchKey: String = "match_list"
     @Published var score1: Int = 0
     @Published var score2: Int = 0
-//    @Published var matchPoint: Bool = false
     @Published var isWon: Bool = false
     @Published var winner: String = ""
     @Published var maxPoints: Int = 11
@@ -32,14 +31,17 @@ class TennisViewModel : ObservableObject {
     @Published var player2TotalWin: Int = 0
     @Published var MatchPoint: Bool = false //Match Point
     
-    
+    // MARK: UpdateMatch
     func updateMatch(score1 : Int, score2 : Int, winnerName: String, MatchCount: Int) {
         let newMatch = Matches(id: UUID().uuidString, player1Score: score1, player2Score: score2, winnerName: winner, MatchCount: matchcount)
         match.append(newMatch)
     }
+    // MARK: Delete history
     func deleteHistory() {
         match.removeAll()
     }
+    
+    // MARK: CheckGamePoint
     func checkGamePoint() {
         if score1 <= (maxPoints - 1)  && score2 <= (maxPoints - 1) {
             if (score1 == (maxPoints - 1) && score2 == (maxPoints - 1)) {
@@ -87,7 +89,7 @@ class TennisViewModel : ObservableObject {
         }
     }
     
-    
+    // MARK: UpdateScore
     func updateScore(score: Int, side1: Bool) {
         if side1 {
             self.score1 = score + 1
@@ -98,18 +100,23 @@ class TennisViewModel : ObservableObject {
         
         checkGamePoint()
     }
+    
+    // MARK: Reset
     func reset() {
         score1 = 0
         score2 = 0
         MatchPoint = false
         isWon = false
     }
+    
+    // MARK: SaveData in UserDefaults
     func saveData() {
         if let encodedData = try? JSONEncoder().encode(match) {
             UserDefaults.standard.set(encodedData, forKey: matchKey)
         }
     }
     
+    // MARK: GetData from UserDefaults
     func getData() {
         guard
             let data = UserDefaults.standard.data(forKey: matchKey),
