@@ -70,6 +70,9 @@ struct SummaryView: View {
         .font(.caption)
         Button("Delete History") {
             tennisViewModel.deleteHistory()
+            tennisViewModel.player1TotalWin = 0
+            tennisViewModel.player2TotalWin = 0
+            tennisViewModel.matchcount = 0
             deleteHistory.toggle()
         }
         .foregroundColor(.red)

@@ -30,7 +30,7 @@ class TennisViewModel : ObservableObject {
     @AppStorage("p2") var playerName2 = "Somu"
     @Published var player1TotalWin: Int = 0
     @Published var player2TotalWin: Int = 0
-    @Published var showView: Bool = false
+    @Published var MatchPoint: Bool = false //Match Point
     
     
     func updateMatch(score1 : Int, score2 : Int, winnerName: String, MatchCount: Int) {
@@ -43,11 +43,14 @@ class TennisViewModel : ObservableObject {
     func checkGamePoint() {
         if score1 <= (maxPoints - 1)  && score2 <= (maxPoints - 1) {
             if (score1 == (maxPoints - 1) && score2 == (maxPoints - 1)) {
-                showView = false
+                MatchPoint = false
                 
             }
             else if (score1 == (maxPoints - 1) || score2 == (maxPoints - 1)) {
-                showView = true
+                if !MatchPoint {
+                    MatchPoint = true
+                    WKInterfaceDevice.current().play(.start)
+                }
             }
         }
         else {
@@ -58,6 +61,7 @@ class TennisViewModel : ObservableObject {
                 player1TotalWin += 1
                 updateMatch(score1: score1, score2: score2, winnerName: winner, MatchCount: matchcount)
                 isWon.toggle()
+                WKInterfaceDevice.current().play(.success)
                 
             }
             else if score2 > score1 + 1 {
@@ -66,16 +70,23 @@ class TennisViewModel : ObservableObject {
                 matchcount += 1
                 updateMatch(score1: score1, score2: score2, winnerName: winner, MatchCount: matchcount)
                 isWon.toggle()
+                WKInterfaceDevice.current().play(.failure)
                 
             }
             else if score1 != score2 {
-               showView = true
+                if !MatchPoint {
+                    MatchPoint = true
+                    WKInterfaceDevice.current().play(.start)
+                }
+               
+                
            }
             else {
-                showView = false
+                MatchPoint = false
             }
         }
     }
+    
     
     func updateScore(score: Int, side1: Bool) {
         if side1 {
@@ -90,7 +101,7 @@ class TennisViewModel : ObservableObject {
     func reset() {
         score1 = 0
         score2 = 0
-        showView = false
+        MatchPoint = false
         isWon = false
     }
     func saveData() {

@@ -93,7 +93,7 @@ struct gameView_Previews: PreviewProvider {
 
 struct ScoreBoard: View {
     @EnvironmentObject var tennisViewModel: TennisViewModel
-    
+//    let generator = UINotificationFeedbackGenerator()
     var body: some View {
         /*VStack {
             if tennisViewModel.matchPoint {
@@ -115,7 +115,7 @@ struct ScoreBoard: View {
         }*/
         VStack {
             
-            if tennisViewModel.showView {
+            if tennisViewModel.MatchPoint {
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(Color.red)
                     .frame(width: 150, height: 30, alignment: .center)
@@ -155,6 +155,8 @@ struct ScoreBoard: View {
                     .onTapGesture {
                         
                         tennisViewModel.updateScore(score: tennisViewModel.score1, side1: true)
+                        WKInterfaceDevice.current().play(.click)
+
                     }
                     
                     
@@ -191,6 +193,7 @@ struct ScoreBoard: View {
                 .onTapGesture {
                     
                     tennisViewModel.updateScore(score: tennisViewModel.score2, side1: false)
+                    WKInterfaceDevice.current().play(.click) // Performs Haptic Feedback
                 }
             }
             Spacer()

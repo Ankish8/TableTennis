@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
 
     @EnvironmentObject var tennisViewModel: TennisViewModel
+    @State var sliderValue: Double = 3
     var body: some View {
         VStack {
             List {
@@ -30,6 +31,8 @@ struct SettingsView: View {
                     Text("Swati").tag("Swati")
                     Text("Papaji").tag("Papaji")
                 })
+                
+                
                 
             }
         }
