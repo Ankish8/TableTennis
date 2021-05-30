@@ -27,5 +27,11 @@
 	</array>
 	<key>WKWatchKitApp</key>
 	<true/>
+	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
+	<string>Want to access Health data to display BPM</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Want to access Health data to display BPM</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Want to access Health data to display BPM</string>
 </dict>
 </plist>

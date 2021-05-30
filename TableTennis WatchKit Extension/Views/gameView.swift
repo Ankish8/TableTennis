@@ -91,8 +91,11 @@ struct gameView_Previews: PreviewProvider {
     }
 }
 
+// MARK: ScoreBoard View
 struct ScoreBoard: View {
     @EnvironmentObject var tennisViewModel: TennisViewModel
+    
+    
 //    let generator = UINotificationFeedbackGenerator()
     var body: some View {
         /*VStack {
@@ -214,12 +217,37 @@ struct ScoreBoard: View {
                     
                 }
                 else {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(tennisViewModel.match) { recent in
-                                RecentView(recent: recent)
+                    HStack {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            ScrollViewReader { value in
+                                HStack {
+                                    ForEach(tennisViewModel.match) { recent in
+                                        RecentView(recent: recent)
+                                        
+                                        
+                                    }
+                                    
+                                }
+                                // MARK: ScrollView
+                                .onAppear() {
+                                    if tennisViewModel.matchcount != 0 {
+                                        value.scrollTo(tennisViewModel.match[tennisViewModel.matchcount-1].id)
+                                    }
+                                    
+                                }
+                                
                             }
+                            
+                            
                         }
+                        
+                        
+                        Divider()
+                            
+                        Spacer()
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(.red)
+                        Text("103")
                     }
                     Spacer()
                 }

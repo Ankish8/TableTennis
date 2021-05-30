@@ -18,6 +18,7 @@
 		A22BBC472660C96B00B20019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A22BBC462660C96B00B20019 /* Assets.xcassets */; };
 		A22BBC4A2660C96B00B20019 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A22BBC492660C96B00B20019 /* Preview Assets.xcassets */; };
 		A22BBC642660D91600B20019 /* gameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22BBC632660D91600B20019 /* gameView.swift */; };
+		A241DA7E2663554F00C59E9D /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A241DA7D2663554F00C59E9D /* HealthKit.framework */; };
 		A276A86426610E1700193242 /* TennisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A276A86326610E1700193242 /* TennisViewModel.swift */; };
 		A276A86A266114A900193242 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A276A869266114A900193242 /* SettingsView.swift */; };
 		A298BC53266140B1005B6E34 /* MatchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A298BC52266140B1005B6E34 /* MatchHistory.swift */; };
@@ -85,6 +86,8 @@
 		A22BBC4B2660C96B00B20019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A22BBC4C2660C96B00B20019 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		A22BBC632660D91600B20019 /* gameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameView.swift; sourceTree = "<group>"; };
+		A241DA7B2663554F00C59E9D /* TableTennis WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TableTennis WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		A241DA7D2663554F00C59E9D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.4.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		A276A86326610E1700193242 /* TennisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisViewModel.swift; sourceTree = "<group>"; };
 		A276A869266114A900193242 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A298BC4E26613DCB005B6E34 /* TableTennis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TableTennis-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A241DA7E2663554F00C59E9D /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +117,7 @@
 				A22BBC2F2660C96900B20019 /* TableTennis WatchKit App */,
 				A22BBC3B2660C96B00B20019 /* TableTennis WatchKit Extension */,
 				A22BBC282660C96900B20019 /* Products */,
+				A241DA7C2663554F00C59E9D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,6 +143,7 @@
 		A22BBC3B2660C96B00B20019 /* TableTennis WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A241DA7B2663554F00C59E9D /* TableTennis WatchKit Extension.entitlements */,
 				A298BC542661511C005B6E34 /* Models */,
 				A276A86226610DF800193242 /* ViewModels */,
 				A22BBC682660D93200B20019 /* Views */,
@@ -174,6 +180,14 @@
 				A298BC5B266165E3005B6E34 /* MatchListView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A241DA7C2663554F00C59E9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A241DA7D2663554F00C59E9D /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A276A86226610DF800193242 /* ViewModels */ = {
@@ -471,6 +485,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "TableTennis WatchKit Extension/TableTennis WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TableTennis WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = R92D944333;
@@ -495,6 +510,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "TableTennis WatchKit Extension/TableTennis WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TableTennis WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = R92D944333;
